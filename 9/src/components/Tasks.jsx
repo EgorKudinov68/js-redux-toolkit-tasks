@@ -2,13 +2,20 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // BEGIN (write your solution here)
-
+import { fetchTasks, removeTask, selectors } from '../slices/tasksSlice.js';
 // END
 
 const Tasks = () => {
   const dispatch = useDispatch();
   // BEGIN (write your solution here)
+  const tasks = useSelector(selectors.selectAll);
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
+const handleRemoveTask = (id) => {
+  dispatch(removeTask(id));
+};
   // END
 
   return tasks && (

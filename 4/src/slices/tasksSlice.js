@@ -10,7 +10,7 @@ const tasksSlice = createSlice({
   reducers: {
     addTask: (state, { payload: { task } }) => {
       // BEGIN (write your solution here)
-
+      state.tasks.unshift(task);
       // END
     },
   },
